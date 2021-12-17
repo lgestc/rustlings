@@ -1,17 +1,15 @@
-// iterators4.rs
-
-// I AM NOT DONE
-
 pub fn factorial(num: u64) -> u64 {
-    // Complete this function to return the factorial of num
-    // Do not use:
-    // - return
-    // Try not to use:
-    // - imperative style loops (for, while)
-    // - additional variables
-    // For an extra challenge, don't use:
-    // - recursion
-    // Execute `rustlings hint iterators4` for hints.
+    (1..=num)
+        .reduce(
+            |accum, item| {
+                if accum == 0 {
+                    item * 1
+                } else {
+                    accum * item
+                }
+            },
+        )
+        .unwrap()
 }
 
 #[cfg(test)]

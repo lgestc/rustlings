@@ -37,6 +37,11 @@ impl Default for Person {
 
 impl From<&str> for Person {
     fn from(s: &str) -> Person {
+        let mut iter = s.split(',');
+        let name: String = iter.next().unwrap().parse().unwrap_or(Self::default().name);
+        let age: usize = iter.next().unwrap().parse().unwrap_or(Self::default().age);
+
+        Person { name, age }
     }
 }
 
